@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onlclick associa o evento a função -->
+        <!-- onclick="navegarEm5s(event)" -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        function navegarEm5s(e) {
+            // Conter o comportamento padrão do click
+            e.preventDefault()
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        /* Outra maneira de pegar um evento, mais dinânica que definir o evento 
+        onclick hardCoded na tag  - DESVANTAGEM - quem ler o código no html não 
+        vai saber como isso está sendo manipulado*/
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s
+
+        // Maneira de contornar o problema acima, usar atributo personalizado
+
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+
+
+    </script>
+</body>
